@@ -1,0 +1,25 @@
+body,
+html {
+  width: 100%;
+  height: 100vh;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
