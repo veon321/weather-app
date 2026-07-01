@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+:root {
+  --font-poppins: "Poppins", sans-serif;
+
+  --background-color: #385170;
+  --panel-color: #9fd3c7;
+}
+
 body,
 html {
   width: 100%;
@@ -10,6 +19,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: var(--font-poppins);
+  background-color: var(--background-color);
 }
 
 .weather-container {
@@ -17,10 +28,39 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--panel-color);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px #142d4c solid;
+  color: #385170;
+  font-size: 18px;
+}
+
+.time {
+  font-size: 12px;
+  color: gray;
 }
 
 .search-container {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.search-button {
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px #9fd3c7 solid;
+  width: 110px;
+  cursor: pointer;
+  background-color: #385170;
+  font-size: 16px;
+  color: #ececec;
+  font-weight: bold;
+}
+
+.city-search {
+  border-radius: 15px;
+  border: 2px #9fd3c7 solid;
 }

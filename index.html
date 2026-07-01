@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="weather-container">
+      <p class="weather">Weather app</p>
       <div class="search-container">
         <input
           type="text"
@@ -15,14 +16,17 @@
           class="city-search"
           placeholder="City"
         />
-        <button type="button" id="search-button">Search</button>
+        <button type="button" id="search-button" class="search-button">
+          Search
+        </button>
       </div>
       <div class="info">
+        <img src="" alt="" class="weather-icon" id="weather-icon" />
         <p class="city" id="city"></p>
+        <p class="condition_text" id="condition_text"></p>
         <p class="temperature" id="temperature"></p>
         <p class="feelslike" id="feelslike"></p>
-        <p class="condition_text" id="condition_text"></p>
-        <img src="" alt="" class="weather-icon" id="weather-icon" />
+        <p class="time" id="time"></p>
       </div>
     </div>
   </body>

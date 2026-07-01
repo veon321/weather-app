@@ -6,6 +6,7 @@ const temperatureDisplay = document.getElementById("temperature");
 const feelslikeDisplay = document.getElementById("feelslike");
 const conditionTextDisplay = document.getElementById("condition_text");
 const weatherIcon = document.getElementById("weather-icon");
+const timeDisplay = document.getElementById("time");
 
 function getWeather() {
   const cityName = citySearch.value.trim();
@@ -35,6 +36,7 @@ function getWeatherData(city, url) {
         data.current.feelslike_c,
         data.current.condition.text,
         data.current.condition.icon,
+        data.location.localtime,
       );
     })
     .catch((error) => {
@@ -49,6 +51,7 @@ function showData(
   feelslike_c,
   condition_text,
   condition_icon,
+  localtime,
 ) {
   cityDisplay.textContent = `Miasto: ${location_name}`;
   temperatureDisplay.textContent = `Temperatura: ${current_temp}°C`;
@@ -57,4 +60,6 @@ function showData(
 
   weatherIcon.src = `https:${condition_icon}`;
   weatherIcon.alt = condition_text;
+
+  timeDisplay.textContent = `Czas lokalny: ${localtime}`;
 }
