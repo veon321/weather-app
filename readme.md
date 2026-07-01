@@ -4,7 +4,7 @@ A sleek, modern, and fully interactive frontend Weather application that provide
 
 ## Live Demo
 
-[Check out the live application here](https://veon321.github.io/weather-app/)
+https://veon321.github.io/weather-app/
 
 ---
 
