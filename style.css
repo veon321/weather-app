@@ -5,12 +5,26 @@
 
   --background-color: #385170;
   --panel-color: #9fd3c7;
+  --card-bg-color: #ececec;
+
+  --text-primary: #385170;
+  --text-secondary: #ececec;
+  --text-muted: gray;
+
+  --border-main-color: #142d4c;
+  --border-accent-color: #9fd3c7;
+  --border-style-main: 2px var(--border-main-color) solid;
+  --border-style-accent: 2px var(--border-accent-color) solid;
+
+  --radius-large: 15px;
+  --radius-small: 10px;
 }
 
 body,
 html {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   padding: 0px;
   margin: 0px;
 }
@@ -21,46 +35,176 @@ body {
   align-items: center;
   font-family: var(--font-poppins);
   background-color: var(--background-color);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .weather-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  gap: 30px;
   background-color: var(--panel-color);
   padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  border: 2px #142d4c solid;
-  color: #385170;
+  border-radius: var(--radius-large);
+  border: var(--border-style-main);
+  color: var(--text-primary);
   font-size: 18px;
+  width: 100%;
+  max-width: 380px;
+  box-sizing: border-box;
+  align-items: stretch;
+  transition: max-width 0.3s ease;
+}
+
+.weather-container.expanded {
+  max-width: 800px;
+}
+
+.main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.weather {
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 0;
 }
 
 .time {
   font-size: 12px;
-  color: gray;
+  color: var(--text-muted);
 }
 
 .search-container {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  width: 100%;
+}
+
+.city-search {
+  flex: 1;
+  border-radius: var(--radius-large);
+  border: var(--border-style-accent);
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
 }
 
 .search-button {
   padding: 10px;
-  border-radius: 15px;
-  border: 2px #9fd3c7 solid;
+  border-radius: var(--radius-large);
+  border: var(--border-style-accent);
   width: 110px;
   cursor: pointer;
-  background-color: #385170;
+  background-color: var(--background-color);
   font-size: 16px;
-  color: #ececec;
+  color: var(--text-secondary);
   font-weight: bold;
 }
 
-.city-search {
-  border-radius: 15px;
-  border: 2px #9fd3c7 solid;
+.info {
+  margin-top: 15px;
+}
+
+.temperature {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.forecast-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 30px;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.forecast-container h3 {
+  font-size: 15px;
+  margin: 10px 0 10px 0;
+  text-align: left;
+  font-weight: 600;
+}
+
+.hourly-forecast {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  overflow-x: auto;
+  width: 100%;
+  padding-bottom: 8px;
+  min-height: 95px;
+}
+
+.daily-forecast {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.forecast-card {
+  background-color: var(--card-bg-color);
+  padding: 8px;
+  border-radius: var(--radius-small);
+  min-width: 60px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.forecast-card p,
+.forecast-card-day p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.forecast-card img {
+  width: 30px;
+  height: 30px;
+}
+
+.forecast-card-day {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg-color);
+  padding: 8px 15px;
+  border-radius: var(--radius-small);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.forecast-card-day img {
+  width: 25px;
+  height: 25px;
+}
+
+.forecast-date {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.hourly-forecast::-webkit-scrollbar,
+.forecast-container::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+.hourly-forecast::-webkit-scrollbar-thumb,
+.forecast-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none !important;
 }

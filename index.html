@@ -8,25 +8,35 @@
   </head>
   <body>
     <div class="weather-container">
-      <p class="weather">Weather app</p>
-      <div class="search-container">
-        <input
-          type="text"
-          id="city-search"
-          class="city-search"
-          placeholder="City"
-        />
-        <button type="button" id="search-button" class="search-button">
-          Search
-        </button>
+      <div class="main-panel">
+        <p class="weather">Weather app</p>
+        <div class="search-container">
+          <input
+            type="text"
+            id="city-search"
+            class="city-search"
+            placeholder="City"
+          />
+          <button type="button" id="search-button" class="search-button">
+            Search
+          </button>
+        </div>
+        <div class="info">
+          <img src="" alt="" class="weather-icon" id="weather-icon" />
+          <p class="city" id="city"></p>
+          <p class="condition_text" id="condition_text"></p>
+          <p class="temperature" id="temperature"></p>
+          <p class="feelslike" id="feelslike"></p>
+          <p class="time" id="time"></p>
+        </div>
       </div>
-      <div class="info">
-        <img src="" alt="" class="weather-icon" id="weather-icon" />
-        <p class="city" id="city"></p>
-        <p class="condition_text" id="condition_text"></p>
-        <p class="temperature" id="temperature"></p>
-        <p class="feelslike" id="feelslike"></p>
-        <p class="time" id="time"></p>
+
+      <div class="forecast-container hidden" id="forecast-container">
+        <h3>Hourly Forecast</h3>
+        <div class="hourly-forecast" id="hourly-forecast"></div>
+
+        <h3>Upcoming Days</h3>
+        <div class="daily-forecast" id="daily-forecast"></div>
       </div>
     </div>
   </body>
