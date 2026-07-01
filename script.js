@@ -9,9 +9,16 @@ const weatherIcon = document.getElementById("weather-icon");
 const timeDisplay = document.getElementById("time");
 const forecastContainer = document.getElementById("forecast-container");
 const weatherContainer = document.querySelector(".weather-container");
+const hourlyForecast = document.getElementById("hourly-forecast");
 
 const hourlyForecastDisplay = document.getElementById("hourly-forecast");
 const dailyForecastDisplay = document.getElementById("daily-forecast");
+
+citySearch.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    getWeather();
+  }
+});
 
 function getWeather() {
   const cityName = citySearch.value.trim();
@@ -25,6 +32,11 @@ function getWeather() {
   }
 }
 searchButton.addEventListener("click", getWeather);
+
+hourlyForecast.addEventListener("wheel", (event) => {
+  event.preventDefault();
+  hourlyForecast.scrollLeft += event.deltaY * 1.5;
+});
 
 function getWeatherData(city, url) {
   fetch(url)
@@ -78,20 +90,20 @@ function showForecast(forecastDays) {
   dailyForecastDisplay.innerHTML = "";
 
   const todayHours = forecastDays[0].hour;
-  const selectedHours = [9, 12, 15, 18, 21];
+  //const selectedHours = [9, 12, 15, 18, 21];
 
   todayHours.forEach((hour) => {
     const hourNumber = new Date(hour.time).getHours();
-    if (selectedHours.includes(hourNumber)) {
-      const hourCard = document.createElement("div");
-      hourCard.className = "forecast-card";
-      hourCard.innerHTML = `
+    //if (selectedHours.includes(hourNumber)) {
+    const hourCard = document.createElement("div");
+    hourCard.className = "forecast-card";
+    hourCard.innerHTML = `
         <p>${hourNumber}:00</p>
         <img src="https:${hour.condition.icon}" alt="${hour.condition.text}">
         <p><strong>${hour.temp_c}°C</strong></p>
       `;
-      hourlyForecastDisplay.appendChild(hourCard);
-    }
+    hourlyForecastDisplay.appendChild(hourCard);
+    // }
   });
 
   forecastDays.forEach((day) => {
