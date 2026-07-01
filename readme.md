@@ -10,7 +10,7 @@ A sleek, modern, and fully interactive frontend Weather application that provide
 
 ## Technologies Used
 
-- **HTML5:**
-- **CSS3:**
-- **JavaScript (Vanilla JS):**
-- **WeatherAPI:**
+- **HTML5**
+- **CSS3**
+- **JavaScript (Vanilla JS)**
+- **WeatherAPI**
